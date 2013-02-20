@@ -39,6 +39,9 @@
             var shouldBeHidden = e.type === "blur";
             
             if ( polyfillHidden !== shouldBeHidden ) {
+                
+                // In browsers that support Object.defineProperty, setting the two properties on document is essentially a no-op.
+                // In other older browsers, this is how we'll keep the properties in sync.
                 document.hidden = polyfillHidden = shouldBeHidden;
                 document.visibilityState = visibilityState = shouldBeHidden ? "hidden" : "visible";
                 
