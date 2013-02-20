@@ -4,7 +4,7 @@
     var prefix, prefixes, polyfillHidden, visibilityState, supportsVisibilityApi, hiddenProperty, defineProp, document;
     
     document = window.document;
-    defineProp = Object.defineProperty;
+    defineProp = Object.defineProperty || $.noop;
     supportsVisibilityApi = false;
     prefixes = [ "", "moz", "ms", "webkit" ];
         
@@ -39,8 +39,8 @@
             var shouldBeHidden = e.type === "blur";
             
             if ( polyfillHidden !== shouldBeHidden ) {
-                polyfillHidden = shouldBeHidden;
-                visibilityState = shouldBeHidden ? "hidden" : "visible";
+                document.hidden = polyfillHidden = shouldBeHidden;
+                document.visibilityState = visibilityState = shouldBeHidden ? "hidden" : "visible";
                 
                 $( document ).trigger( "visibilitychange" );
             }
