@@ -20,8 +20,6 @@
     
     if ( !supportsVisibilityApi ) {
         // Add a good enough unprefixed polyfill for browsers that don't support the visibility API. ( IE8 )
-        // The last iteration of our prefix test results in the properties being set to their unprefixed versions,
-        // so they do not need to be set here.
         polyfillHidden = false;
         visibilityState = "visible";
 
@@ -37,12 +35,12 @@
             }
         });
         
-        $( window ).bind( "focus blur", function() {
-            var isHidden = !( document.activeElement && document.hasFocus() );
+        $( window ).bind( "focus blur", function( e ) {
+            var shouldBeHidden = e.type === "blur";
             
-            if ( polyfillHidden !== isHidden ) {
-                polyfillHidden = isHidden;
-                visibilityState = isHidden ? "hidden" : "visible";
+            if ( polyfillHidden !== shouldBeHidden ) {
+                polyfillHidden = shouldBeHidden;
+                visibilityState = shouldBeHidden ? "hidden" : "visible";
                 
                 $( document ).trigger( "visibilitychange" );
             }
