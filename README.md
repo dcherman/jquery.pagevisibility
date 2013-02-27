@@ -8,3 +8,4 @@ See the [page visibility](https://developer.mozilla.org/en-US/docs/DOM/Using_the
 
 ## License
 Copyright (c) 2013 Daniel Herman, contributors Licensed under the MIT license.
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/220c23a389222c8d5dc9ceb506af04fe "githalytics.com")](http://githalytics.com/dcherman/jquery.pagevisibility)
