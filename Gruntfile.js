@@ -2,8 +2,18 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks( "grunt-contrib-uglify" );
     grunt.loadNpmTasks( "grunt-contrib-watch" );
     grunt.loadNpmTasks( "grunt-contrib-jshint" );
+    grunt.loadNpmTasks( "grunt-contrib-connect" );
     
     grunt.initConfig({
+        connect: {
+            server: {
+                options: {
+                    hostname: "",
+                    port: 8001,
+                    base: "."
+                }
+            }
+        },
         watch: {
             dev: {
               files: '<%= jshint.src %>',
@@ -41,5 +51,6 @@ module.exports = function( grunt ) {
         }
     });
     
-    grunt.registerTask( "default", ["jshint", "uglify" ]);
+    grunt.registerTask( "default", [ "jshint", "uglify" ]);
+    grunt.registerTask( "dev", [ "connect", "watch" ]);
 };
