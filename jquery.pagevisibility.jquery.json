@@ -1,0 +1,27 @@
+{
+    "name": "jquery.pagevisibility",
+    "title": "jquery.pagevisibility",
+    "description": "Normalize the Page Visibility API between browsers so that the unprefixed properties and event is available.  In browsers that don't support it, provide a \"good enough\" polyfill.",
+    "keywords": [
+        "pagevisibility",
+        "jquery",
+        "polyfill"
+    ],
+    "version": "0.1.0",
+    "author": {
+        "name": "Daniel Herman"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "bugs": "https://github.com/dcherman/jquery.pagevisibility/issues",
+    "homepage": "https://github.com/dcherman/jquery.pagevisibility/",
+    "docs": "https://github.com/dcherman/jquery.pagevisibility/",
+    "download": "https://github.com/dcherman/jquery.pagevisibility/",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}

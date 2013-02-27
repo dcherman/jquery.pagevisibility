@@ -1,3 +1,4 @@
+/*! jquery.pagevisibility v0.1.0 | (c) 2013 Daniel Herman | opensource.org/licenses/MIT */
 (function( $ ) {
     "use strict";
     
