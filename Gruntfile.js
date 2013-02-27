@@ -22,6 +22,9 @@ module.exports = function( grunt ) {
         },
         uglify: {
             dist: {
+                options: {
+                    preserveComments: "some"
+                },
                 files: {
                     "jquery.pagevisibility.min.js": [ "jquery.pagevisibility.js" ]
                 }
