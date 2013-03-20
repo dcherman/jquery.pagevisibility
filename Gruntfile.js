@@ -3,7 +3,7 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks( "grunt-contrib-watch" );
     grunt.loadNpmTasks( "grunt-contrib-jshint" );
     grunt.loadNpmTasks( "grunt-contrib-connect" );
-    
+
     grunt.initConfig({
         connect: {
             server: {
@@ -16,14 +16,15 @@ module.exports = function( grunt ) {
         },
         watch: {
             dev: {
-              files: '<%= jshint.src %>',
-              tasks: [ "jshint", "uglify" ]
+                files: '<%= jshint.src %>',
+                tasks: [ "jshint", "uglify" ]
             }
         },
         uglify: {
             dist: {
                 options: {
-                    preserveComments: "some"
+                    preserveComments: "some",
+                    report: "gzip"
                 },
                 files: {
                     "jquery.pagevisibility.min.js": [ "jquery.pagevisibility.js" ]
@@ -43,17 +44,19 @@ module.exports = function( grunt ) {
                 unused: true,
                 trailing: true,
                 undef: true,
+                indent: 4,
                 browser: true,
                 nonew: true,
                 noempty: true,
                 globals: {
                     module: true,
-                    jQuery: false
+                    jQuery: false,
+                    define: false
                 }
             }
         }
     });
-    
+
     grunt.registerTask( "default", [ "jshint", "uglify" ]);
     grunt.registerTask( "dev", [ "connect", "watch" ]);
 };
