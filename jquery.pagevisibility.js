@@ -15,7 +15,7 @@
     document = window.document;
     defineProp = Object.defineProperty || $.noop;
     supportsVisibilityApi = false;
-    prefixes = [ "", "moz", "ms", "webkit" ];
+    prefixes = [ "ms", "moz", "webkit", "" ];
 
     while( prefixes.length ) {
         prefix = prefixes.pop();
@@ -29,7 +29,7 @@
 
     if ( !supportsVisibilityApi ) {
         // Add a good enough unprefixed polyfill for browsers that don't support the visibility API
-        // and set the initial values.  
+        // and set the initial values.
         polyfillHidden = document.hidden = false;
         visibilityState = document.visibilityState = "visible";
 
