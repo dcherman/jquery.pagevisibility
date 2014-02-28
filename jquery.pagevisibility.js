@@ -1,4 +1,4 @@
-/*! jquery.pagevisibility v0.2.0 | (c) 2013 Daniel Herman | opensource.org/licenses/MIT */
+/*! jquery.pagevisibility v0.2.1 | (c) 2013 Daniel Herman | opensource.org/licenses/MIT */
 (function (factory) {
     if ( typeof define === "function" && define.amd ) {
         // AMD. Register as an anonymous module.
