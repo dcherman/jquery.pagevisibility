@@ -1,4 +1,4 @@
-/*! jquery.pagevisibility v0.2.1 | (c) 2013 Daniel Herman | opensource.org/licenses/MIT */
+/*! jquery.pagevisibility v0.2.2 | (c) 2013 Daniel Herman | opensource.org/licenses/MIT */
 (function (factory) {
     if ( typeof define === "function" && define.amd ) {
         // AMD. Register as an anonymous module.
@@ -33,17 +33,23 @@
         polyfillHidden = document.hidden = false;
         visibilityState = document.visibilityState = "visible";
 
-        defineProp( document, "hidden", {
-            get: function() {
-                return polyfillHidden;
-            }
-        });
+        // Support: Android < 4
+        // http://bugs.jquery.com/ticket/13494
+        // http://caniuse.com/#feat=pagevisibility
+        try {
+            defineProp( document, "hidden", {
+                get: function() {
+                    return polyfillHidden;
+                }
+            });
 
-        defineProp( document, "visibilityState", {
-            get: function() {
-                return visibilityState;
-            }
-        });
+            defineProp( document, "visibilityState", {
+                get: function() {
+                    return visibilityState;
+                }
+            });
+        }
+        catch ( e ) {}
 
         $( window ).bind( "focus blur", function( e ) {
             var shouldBeHidden = e.type === "blur";
