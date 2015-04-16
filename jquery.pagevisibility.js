@@ -40,13 +40,15 @@
             defineProp( document, "hidden", {
                 get: function() {
                     return polyfillHidden;
-                }
+                },
+                set: $.noop
             });
 
             defineProp( document, "visibilityState", {
                 get: function() {
                     return visibilityState;
-                }
+                },
+                set: $.noop
             });
         }
         catch ( e ) {}
